@@ -27,15 +27,14 @@ async function fetchData(repo) {
 
    arr.push(data);
 }
-
+arr = arr.sort();
 for(var i = 0; i<repoName.length;i++){
-   fetchData(repoName[i]);
+    fetchData(repoName[i]);
 }
 
 console.log("Pra", arr);
 
 let input = document.getElementById("search-box");
-
 
 //Creating the array with company names for searching
 let companyArray = createCompanyArray();
@@ -46,7 +45,7 @@ input.addEventListener("keyup", (e) => {
    for (let i of companyArray) {
        if (
         i.toLowerCase().startsWith(input.value.toLowerCase()) && input.value != ""
-       ) {
+        ) {
            let listItem = document.createElement("li")
 
            listItem.classList.add("list-items")
@@ -60,11 +59,21 @@ input.addEventListener("keyup", (e) => {
 
            listItem.innerHTML = word
            document.querySelector(".list").appendChild(listItem)
-       }
-   }
-
-})
-
+           input.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+              e.preventDefault()
+              console.log("okay");
+              let details = document.querySelector("#details");
+              let cont1 = arr[0][0].get("login");
+              let cont2 = arr[1][0].get("login");
+              let cont3 = arr[2][0].get("login");
+              let displayStr = "The top contributors are: " + cont1+", "+cont2+", "+cont3 + "The no. of contributions are coming soon";
+              details.innerHTML = displayStr;
+            }
+          });
+        }
+    }
+});
 
 
 function displayNames(value) {
@@ -87,7 +96,7 @@ function createCompanyArray() {
 
 function createRepoListMap() {
     let map1 = new Map();
-    Map.set("Mozille", ["send", "sops", "glean"]);
+    Map.set("Mozilla", ["send", "sops", "glean"]);
     Map.set("Brave", ["brave-browser", "brave-core", "brave-ios", "brave-ui"]);
     Map.set("Adobe", ["spectrum-web-components", "helix-website", "hyde", "ferrum"]);
     return map1;
@@ -95,5 +104,4 @@ function createRepoListMap() {
 
 function createTopContributorMap(arr) {
     let map1 = new Map();
-    
 }
