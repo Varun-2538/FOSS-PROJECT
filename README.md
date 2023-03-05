@@ -35,3 +35,37 @@ The following technical requirements will be needed to develop the Open Source C
 
 Conclusion:
 The Open Source Contributor Search Project aims to develop a system that can efficiently search for the best open source contributor based on the specific needs of the company. With the implementation of the features mentioned above and the technical requirements needed, the system will help companies find the right contributor for their open source projects and maximize their chances of success.
+To install Tailwind CSS, follow these steps:
+
+    Make sure you have Node.js and npm (Node Package Manager) installed on your system. You can download the latest version of Node.js from https://nodejs.org/en/download/.
+
+    Create a new project directory on your computer and navigate to it using your terminal or command prompt.
+
+    Initialize your project by running the command npm init and following the prompts. This will create a package.json file in your project directory.
+
+    Install Tailwind CSS and its dependencies by running the command npm install tailwindcss postcss-cli autoprefixer in your terminal or command prompt.
+
+    Create a configuration file for Tailwind CSS by running the command npx tailwindcss init in your terminal or command prompt. This will create a tailwind.config.js file in your project directory.
+
+    Create a postcss.config.js file in your project directory with the following content:
+
+javascript
+
+module.exports = {
+  plugins: [
+    require('tailwindcss'),
+    require('autoprefixer'),
+  ],
+}
+
+    Create a CSS file in your project directory, e.g. styles.css, and add the following content:
+
+css
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+    Build your CSS file by running the command npx postcss styles.css -o main.css in your terminal or command prompt. This will create a main.css file in your project directory with all the Tailwind CSS styles included.
+
+    Link the main.css file in your HTML file, and you're ready to start using Tailwind CSS!
