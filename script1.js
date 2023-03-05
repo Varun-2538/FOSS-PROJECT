@@ -15,7 +15,7 @@ let repoName = [
 
 let arr = [];
 async function fetchData(repo) {
-   const token = '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';
+   const token = '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';
 
    const response = await fetch(`https://api.github.com/repos/${repo}/contributors`, {
        headers: {
