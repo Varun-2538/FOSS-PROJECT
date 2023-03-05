@@ -41,3 +41,8 @@
 .list-items:hover {
   background-color: #dddddd;
 }
+
+#details {
+  color:yellow;
+  
+}
